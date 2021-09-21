@@ -27,19 +27,16 @@ void loop() {
   }*/
  // Serial.println(analogRead(velPin));
   if(analogRead(velPin)<470 or analogRead(velPin)>570) {  
-    int acc= map(analogRead(velPin), 0, 1023, -10, 10);
+    int acc = map(analogRead(velPin), 0, 1023, -10, 10);
     vel += acc;
-    if (vel>250) {
-      vel=250;
-    } else if (vel<-250){
-      vel=-250;
-    } else if (vel < 121 and vel > -121) {
-      vel = 0;
-    }
+    vel = max(vel, 250);
+    vel = min(vel, 250);
     if (vel<0) { 
+      vel = min(vel,-120);
       velocity = -vel;
       front = false; 
     } else {
+      vel = max(vel, 120);
       velocity = vel;
       front= true;
     }   
@@ -54,7 +51,7 @@ void loop() {
     while(analogRead(turnPin)<470){
       Rmotor.run(FORWARD);         
       Lmotor.run(BACKWARD);
-      Serial.println("pd");
+      Serial.println("L");
     }
     goStraight();  
   }
@@ -62,7 +59,7 @@ void loop() {
     while(analogRead(turnPin)>570){
       Rmotor.run(BACKWARD);         
       Lmotor.run(FORWARD);
-      Serial.println("lega");
+      Serial.println("R");
     }
     goStraight();  
   }
