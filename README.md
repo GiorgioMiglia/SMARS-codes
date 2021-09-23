@@ -4,7 +4,7 @@ This repository will contain all the codes I will write for the 3d printed SMARS
 
 [SMARS on thingiverse](https://www.thingiverse.com/thing:2662828)
 
-[joystick_controll.ino](https://github.com/GiorgioMiglia/SMARS-codes/blob/main/joystick_controll.ino)
+[joystick_controll.ino](https://github.com/GiorgioMiglia/SMARS-codes/blob/main/joystick_controll.ino)     [[release](https://github.com/GiorgioMiglia/SMARS-codes/releases/tag/v1-beta)]
 ------------------------------------------------
 make the robot manovrable by a joystick, connect it to a1 (VRy) and a2 (VRx)
 
